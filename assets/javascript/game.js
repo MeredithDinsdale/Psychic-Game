@@ -11,7 +11,7 @@ var lettersArray = [];
 
 var crystalBall = $(".crystal-ball");
 
-console.log(randomLetter);
+console.log('SOLUTION: ' + randomLetter);
 var audioElement = document.createElement("audio");
     audioElement.setAttribute("src", "assets/javascript/Twinkle-sound-effect.mp3");
 
@@ -20,14 +20,14 @@ $(document).ready(function() {
 
     document.onkeyup=function(event) {
         var userGuess = event.key.toUpperCase();
-        console.log(userGuess);
+        console.log('User guess: ' + userGuess);
         if (Alphanumeric(event.key)){ 
             document.getElementById("message").innerHTML ="";
             crystalBall.animate({ opacity: "0" }, 1000);
 //If user wins-------------------------------------------------------------------------------------------------------------      
         if (userGuess === randomLetter) {
             wins +=1;
-            console.log(wins);
+            console.log('Number of wins: ' + wins);
             crystalBall.animate({ opacity: ".6" }, 500);
 
             setTimeout(function(){ audioElement.play(); }, 100);
@@ -36,7 +36,7 @@ $(document).ready(function() {
             guessCounter = 0;
             lettersArray = [];
             randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-            console.log(randomLetter);
+            console.log('SOLUTION: ' + randomLetter);
             }
 //If guess is incorrect----------------------------------------------------------------------------------------------------
             
@@ -51,8 +51,8 @@ $(document).ready(function() {
                     guessCounter = 0;
                     lettersArray = [];
                     randomLetter = alphabet[Math.floor(Math.random() * alphabet.length)];
-                    console.log(randomLetter);
-                    console.log(losses);
+                    console.log('SOLUTION: ' + randomLetter);
+                    console.log('Number of losses: ' + losses);
         }
     }
 document.getElementById("win").innerHTML = 'Wins: ' + wins;
